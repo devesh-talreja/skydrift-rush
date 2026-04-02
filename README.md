@@ -103,11 +103,19 @@ As you progress through the levels, you will unlock increasingly powerful vehicl
 
 ---
 
-## 🔧 Play Online / Installation
+## 🔧 Play Online / Installation 
 
-### [Play Online Here](#)
+### [▶️ Play SkyDrift Rush Online](#)
 
-Simply open the `index.html` file in any modern web browser to play locally. No server or active internet connection is required after download!
+### 💻 Local Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/devesh-talreja/skydirft-rush.git
+   ```
+2. **Open the game:**
+   Navigate into the folder and open `index.html` in your browser.
+
+**Love the game? Give it a ⭐ star to support the project!**
 
 ---
 
@@ -122,8 +130,10 @@ Simply open the `index.html` file in any modern web browser to play locally. No 
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+Contributions, issues, and feature requests are welcome! 
 Feel free to check out the [issues page](https://github.com/devesh-talreja/skydirft-rush/issues) to start contributing.
+
+**If you find this project helpful, please consider giving it a ⭐ to help others find it!**
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
