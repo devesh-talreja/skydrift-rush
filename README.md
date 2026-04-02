@@ -1,6 +1,6 @@
 # 🌩️ SkyDrift Rush - Ultimate Racing Survival
 
-[![Game Version](https://img.shields.io/badge/version-2.0-brightgreen)]()  [![Status](https://img.shields.io/badge/status-stable-blue)]()  [![Platform](https://img.shields.io/badge/platform-web-lightgrey)]()
+[![Game Version](https://img.shields.io/badge/version-2.0-brightgreen)]()   [![Status](https://img.shields.io/badge/status-stable-blue)]()   [![Platform](https://img.shields.io/badge/platform-web-lightgrey)]()
 
 **SkyDrift Rush** is an adrenaline-pumping racing survival game where you control a futuristic vehicle through increasingly chaotic highways.
 
@@ -105,7 +105,7 @@ As you progress through the levels, you will unlock increasingly powerful vehicl
 
 ## 🔧 Play Online / Installation 
 
-### [▶️ Play SkyDrift Rush Online](#)
+#### [▶️ Play SkyDrift Rush Online](#)
 
 ### 💻 Local Setup
 1. **Clone the repository:**
@@ -132,8 +132,6 @@ As you progress through the levels, you will unlock increasingly powerful vehicl
 
 Contributions, issues, and feature requests are welcome! 
 Feel free to check out the [issues page](https://github.com/devesh-talreja/skydirft-rush/issues) to start contributing.
-
-**If you find this project helpful, please consider giving it a ⭐ to help others find it!**
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
