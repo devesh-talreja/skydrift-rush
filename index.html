@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SkyDrift: Turbo Rush</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div id="gameScreen" class="screen hidden" style="position: relative;">
+        <canvas id="gameCanvas" width="850" height="580"></canvas>
+        <div id="gameHUD" class="game-stats">
+            <span>🏁 SPEED: <span id="speedValue">0</span> km/h</span>
+            <span>⏱️ TIME: <span id="timeValue">00</span>s</span>
+            <span>📊 <span id="levelNum">1</span></span>
+            <span>📈 PROG: <span id="progressPercent">0</span>%</span>
+            <span id="durabilityVal">0</span>
+            <span>🕊️ FLY: <span id="flyCharges">2</span></span>
+        </div>
+        <div class="progress-bar" style="position: absolute; bottom: 12px; left: 20px; right: 20px; width: auto;">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <div id="pauseOverlay" style="position: absolute; top: 40%; left: 0; right: 0; text-align: center; background: #000000aa; padding: 10px; color: white; font-weight: bold; display: none;">⏸ PAUSED - Press P</div>
+    </div>
+
+    <!-- MENU SCREEN -->
+    <div id="menuScreen" class="screen menu-panel">
+        <h1>🌩️ SKYDRIFT</h1>
+        <div class="button-grid">
+            <button id="startBtn" class="btn btn-primary">▶ START RACE</button>
+            <button id="unlimitedBtn" class="btn">♾️ UNLIMITED</button>
+            <button id="legendaryBtn" class="btn">👑 LEGENDARY</button>
+            <button id="carSelectBtn" class="btn">🚗 CARS</button>
+            <button id="levelSelectBtn" class="btn">🗺️ LEVELS</button>
+            <button id="recordsBtn" class="btn">🏆 RECORDS</button>
+            <button id="controlsBtn" class="btn">📖 CONTROLS</button>
+            <button id="moreBtn" class="btn">🎮 MORE</button>
+        </div>
+        <div id="quickInfo" style="margin-top: 16px; text-align: center; font-size: 0.8rem; color: #ccddff;">
+            🚀 last played: <span id="lastLevelDisplay">-</span> | car: <span id="lastCarDisplay">-</span>
+        </div>
+    </div>
+
+    <!-- CAR SELECTION -->
+    <div id="carScreen" class="screen hidden menu-panel">
+        <h2>⚙️ SELECT VEHICLE</h2>
+        <div id="carList"></div>
+        <div class="button-grid">
+            <button id="backCarBtn" class="btn">⬅ BACK</button>
+            <button id="confirmCarBtn" class="btn btn-primary">SAVE & CLOSE</button>
+        </div>
+    </div>
+
+    <!-- LEVEL SELECTION -->
+    <div id="levelScreen" class="screen hidden menu-panel">
+        <h2>🌄 CHOOSE LEVEL</h2>
+        <div id="levelList"></div>
+        <div class="button-grid">
+            <button id="backLevelBtn" class="btn">⬅ BACK</button>
+        </div>
+    </div>
+
+    <!-- RECORDS SCREEN -->
+    <div id="recordsScreen" class="screen hidden menu-panel">
+        <h2>🏅 BEST SCORES</h2>
+        <div id="recordsContainer" class="records-list"></div>
+        <button id="closeRecordsBtn" class="btn" style="margin-top: 20px;">BACK</button>
+    </div>
+
+    <!-- CONTROLS SCREEN -->
+    <div id="controlsScreen" class="screen hidden menu-panel">
+        <h2>🎮 CONTROLS</h2>
+        <div class="controls-tip">
+            <span>⬅️➡️ / A D : steer</span>
+            <span>⬆️ / W : accelerate</span>
+            <span>⬇️ / S : brake</span>
+            <span>🚀 SPACE / ⬆️ : FLY (2 charges, max 4)</span>
+            <span>⏸️ P : pause</span>
+        </div>
+        <p style="margin-top: 16px; color:#ddddff;">✨ FLY: gradual lift → hover → descend, avoids ground obstacles!<br>💥 Durability drops on hit. Collect power-ups to survive!</p>
+        <p style="color:#ddddff;">⚡ POWER-UPS: ❤️ Repair, 🕊️ +1 Fly, 🚀 Speed Boost, 🛡️ Shield (4s invincible), ⚠️ Chaos (more obstacles!), ✨ Clear (removes all)</p>
+        <p style="color:#ffaa66;">🛸 Bonus: Every 3 wide obstacles give +1 fly charge!<br>⚠️ Hitting walls stuns you for 2 seconds!<br>🚧 New: Line obstacles appear on lane dividers!</p>
+        <button id="closeControlsBtn" class="btn" style="margin-top: 20px;">GOT IT</button>
+    </div>
+
+    <!-- MORE SCREEN (Achievements & Links) -->
+    <div id="moreScreen" class="screen hidden menu-panel">
+        <h2>🎮 EXTRAS</h2>
+        <div id="achievementContainer" style="margin: 20px 0;"></div>
+        <div style="margin: 20px 0;">
+            <h3 style="color: #ffaa44;">🔥 CREATOR'S GAMES</h3>
+            <div class="button-grid">
+                <a href="https://github.com/devesh-talreja/Duel-Racer" target="_blank" class="btn">🏁 DUEL RACER</a>
+                <button class="btn" disabled style="opacity:0.6">⏳ COMING SOON</button>
+                <button class="btn" disabled style="opacity:0.6">⭐ COMING SOON</button>
+            </div>
+        </div>
+        <div class="button-grid">
+            <button id="backMoreBtn" class="btn">⬅ BACK</button>
+        </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="resultScreen" class="screen hidden menu-panel result-stats">
+        <h2 id="resultTitle">🏁 RACE RESULT</h2>
+        <div id="resultDetails"></div>
+        <div class="button-grid" style="margin-top: 20px;">
+            <button id="retryBtn" class="btn">🔄 RETRY</button>
+            <button id="nextLevelBtn" class="btn btn-primary" style="display: none;">➡ NEXT LEVEL</button>
+            <button id="homeFromResultBtn" class="btn">🏠 HOME</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
