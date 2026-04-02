@@ -5,9 +5,7 @@
 **SkyDrift Rush** is an adrenaline-pumping racing survival game where you control a futuristic vehicle through increasingly chaotic highways.
 
 ---
-<p align="center">
   <img src="favicon.png" width="128" alt="SkyDrift Rush Icon">
-</p>
 
 ## 🎮 Game Overview
 
