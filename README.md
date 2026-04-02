@@ -105,7 +105,7 @@ As you progress through the levels, you will unlock increasingly powerful vehicl
 
 ## 🔧 Play Online / Installation 
 
-#### [▶️ Play SkyDrift Rush Online](#)
+#### [▶️ Play SkyDrift Rush Online](https://skydrift-rush.netlify.app/)
 
 ### 💻 Local Setup
 1. **Clone the repository:**
